@@ -1,2 +1,12 @@
 order:
   this props from order file props
+server:
+  port: 8082
+spring:
+  kafka:
+    producer:
+      ## 0 -- none / 1 -- leader / -1 -- all
+#      acks: -1
+      bootstrap-servers: localhost:29092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
