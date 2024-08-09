@@ -3,12 +3,30 @@ delivery:
 server:
   port: 8083
 
+
+#spring:
+#  kafka:
+#    consumer:
+#      properties:
+#        spring.json.trusted.packages: "com.example.entity.Foo"
+
 spring:
   kafka:
     consumer:
       auto-offset-reset: earliest
       bootstrap-servers: localhost:29092
       group-id: some-group-id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            value:
+              default:
+                type: 'com.n1nt3nd0.deliveryservice.consumer.dto.OrderMessageDto'
+
+#      properties:
+#        spring.json.trusted.packages: "com.example.entity.Foo"
 #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 #      properties:
