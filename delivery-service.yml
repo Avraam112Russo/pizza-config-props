@@ -1,6 +1,7 @@
 delivery:
   this props from delivery file props
-
+server:
+  port: 8083
 
 spring:
   kafka:
